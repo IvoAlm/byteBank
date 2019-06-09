@@ -2,13 +2,13 @@
 
 Class ContaCorrente{
 
-    public $titular;
+    private $titular;
 
-    public $conta;
+    private $conta;
 
-    public $agencia;
+    private $agencia;
 
-    public $saldo;
+    private $saldo;
 
     public function __construct($titular = null, $conta = null, $agencia = null, $saldo = null){
 
@@ -27,5 +27,6 @@ Class ContaCorrente{
         $this->saldo = $this->saldo + $valor;
             return $this;
     }
+
 
 };
