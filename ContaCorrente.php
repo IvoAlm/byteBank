@@ -27,6 +27,30 @@ Class ContaCorrente{
         $this->saldo = $this->saldo + $valor;
             return $this;
     }
+    public function getSaldo(){
+        return $this->saldo;
+    }
+    public function getConta(){
+        return $this->conta;
+    }
+    public function getAgencia(){
+        return $this->agencia;
+    }
+    public function getTitular(){
+        return $this->titular;
+    }
+    public function setSaldo($valor){
+        return $this->saldo = $valor;
+    }
+    public function setConta($valor){
+        return $this->conta = $valor;
+    }
+    public function setAgencia($valor){
+        return $this->agencia = $valor;
+    }
+    public function setTitular($valor){
+        return $this->titular = $valor;
+    }
 
 
 };
