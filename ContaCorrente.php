@@ -2,13 +2,13 @@
 
 Class ContaCorrente{
 
-    private $titular;
+    protected $titular;
 
-    private $conta;
+    protected $conta;
 
-    private $agencia;
+    protected $agencia;
 
-    private $saldo;
+    protected $saldo;
 
     public function __construct($titular = null, $conta = null, $agencia = null, $saldo = null){
 
@@ -27,29 +27,29 @@ Class ContaCorrente{
         $this->saldo = $this->saldo + $valor;
             return $this;
     }
+
+    public function __get($atributo){
+        $this->protegeAtributo($atributo);
+        return $this->$atributo;
+    }
+
+    public function __set($atributo, $value)
+    {
+        $this->protegeAtributo($atributo);
+        return $this->$atributo = $value;
+
+    }
+
+    private function protegeAtributo($atributo){
+        if($atributo == 'titular' || $atributo == 'saldo'){
+            throw new Exception('O atributo, $atributo, é privado.');
+        }
+    }
+    private function formataSaldo(){
+        return "R$ ". number_format($this->saldo, 2, ",",".");
+    }
     public function getSaldo(){
-        return $this->saldo;
-    }
-    public function getConta(){
-        return $this->conta;
-    }
-    public function getAgencia(){
-        return $this->agencia;
-    }
-    public function getTitular(){
-        return $this->titular;
-    }
-    public function setSaldo($valor){
-        return $this->saldo = $valor;
-    }
-    public function setConta($valor){
-        return $this->conta = $valor;
-    }
-    public function setAgencia($valor){
-        return $this->agencia = $valor;
-    }
-    public function setTitular($valor){
-        return $this->titular = $valor;
+        return $this->formataSaldo();
     }
 
 

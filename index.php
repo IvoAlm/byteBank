@@ -9,5 +9,4 @@ var_dump($contaJoao);
 $contaJoao->sacar(500);
 var_dump($contaJoao);
 var_dump($contaJoao->getSaldo());
-$contaJoao->setAgencia(13693);
 var_dump($contaJoao);
